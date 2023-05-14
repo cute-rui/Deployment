@@ -36,7 +36,7 @@ jobs:
           cp ./justfile ./bin
       - name: Create Artifact
         run: |
-          tar -cvf Avalon-Micro-${{ matrix.platform }}-${{ matrix.arch }}.tar ./Avalon-Micro/bin
+          tar -czvf Avalon-Micro-${{ matrix.platform }}-${{ matrix.arch }}.tar.gz ./Avalon-Micro/bin
       - name: Upload to file repository
         run: |
           curl -H "${{ secrets.AVALON_MICRO_FILE_REPO_AUTH_SECRET }}" ${{ secrets.AVALON_MICRO_FILE_REPO_SECRET }} --upload-file Avalon-Micro-${{ matrix.platform }}-${{ matrix.arch }}.tar
