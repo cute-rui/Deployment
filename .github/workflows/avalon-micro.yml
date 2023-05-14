@@ -4,6 +4,8 @@ on:
     inputs:
       branch:
         type: string
+      webhookId:
+        type: string
 
 jobs:
   deploy:
