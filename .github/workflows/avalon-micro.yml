@@ -33,6 +33,7 @@ jobs:
         run: |
           cd ./Avalon-Micro
           just os=${{ matrix.platform }} arch=${{ matrix.arch }} build_mirai
+          cp ./justfile ./bin
       - name: Create Artifact
         run: |
           tar -cvf Avalon-Micro-${{ matrix.platform }}-${{ matrix.arch }}.tar ./Avalon-Micro/bin
