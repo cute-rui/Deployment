@@ -32,7 +32,7 @@ jobs:
       - name: Build Avalon Micro
         run: |
           cd ./Avalon-Micro
-          just os=${{ matrix.platform }} arch=${{ matrix.arch }} build_mirai
+          just os=${{ matrix.platform }} arch=${{ matrix.arch }} build_upgrade_agent
           cp ./justfile ./bin
       - name: Create Artifact
         run: |
