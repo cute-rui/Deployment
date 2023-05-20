@@ -20,6 +20,7 @@ jobs:
       - name: Show GO env
         run: |
           go env -w GOARCH=${{ matrix.arch }}
+          go env -w CGO_ENABLED=0
           go env
       - name: Windows - Setting up just
         if: matrix.platform == 'windows-latest'
