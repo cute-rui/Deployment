@@ -39,6 +39,6 @@ jobs:
           tar -czvf Avalon-Micro-${{ matrix.platform }}-${{ matrix.arch }}.tar.gz ./Avalon-Micro/bin
       - name: Upload to file repository
         run: |
-          curl -H "${{ secrets.AVALON_MICRO_FILE_REPO_AUTH_SECRET }}" ${{ secrets.AVALON_MICRO_FILE_REPO_SECRET }} --upload-file Avalon-Micro-${{ matrix.platform }}-${{ matrix.arch }}.tar.gz
+          curl -H "${{ secrets.AVALON_MICRO_FILE_REPO_AUTH_SECRET }}" ${{ secrets.AVALON_MICRO_FILE_REPO_SECRET }} -F file=@"Avalon-Micro-${{ matrix.platform }}-${{ matrix.arch }}.tar.gz"
 
       
