@@ -16,5 +16,5 @@ jobs:
     steps:
       - name: Upload to file repository
         run: |
-          curl -H "Content-Type: application/json" -X POST -d '{"view":"https://github.com/TUT-LIFRMer/rules","name":"something","type":"document"}' "https://www.feishu.cn/flow/api/trigger-webhook/fc4e11a48201b5be818bbd6a9960a3c4"
+          curl -H "Content-Type: application/json" -X POST -d '{"view":"https://github.com/TUT-LIFRMer/rules","name":"something","type":"document"}' "https://www.feishu.cn/flow/api/trigger-webhook/7e1821211ea5529297b0b732f5eca390"
       
