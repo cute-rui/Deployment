@@ -37,7 +37,7 @@ jobs:
           set shell := ["powershell.exe", "-c"]
       - name: Get Files
         run: |
-          git clone ${{ secrets.AVALON_MICRO_GIT_REPO_SECRET }} -c http.extraheader="${{ secrets.AVALON_MICRO_GIT_REPO_AUTH_SECRET }}"
+          git clone ${{ secrets.AVALON_MICRO_GIT_REPO_SECRET }}
           git checkout -b ${{ inputs.branch }}
       - name: Build Avalon Micro
         run: |
