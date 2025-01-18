@@ -16,6 +16,9 @@ jobs:
     steps:
       - uses: actions/setup-go@v4.0.0
       - uses: actions/checkout@v3.5.2
+        with:
+          repository: <organization>/<repository>
+          token: ${{ secrets.AVALON_MICRO_GIT_REPO_AUTH_SECRET }}
       - uses: docker/setup-qemu-action@v1
       - uses: docker/setup-buildx-action@v1
       - uses: extractions/setup-just@v1
@@ -35,10 +38,6 @@ jobs:
         if: matrix.platform == 'windows-latest'
         run: |
           set shell := ["powershell.exe", "-c"]
-      - name: Get Files
-        run: |
-          git clone ${{ secrets.AVALON_MICRO_GIT_REPO_SECRET }} -c http.extraheader="${{ secrets.AVALON_MICRO_GIT_REPO_AUTH_SECRET }}"
-          git checkout -b ${{ inputs.branch }}
       - name: Build Avalon Micro
         run: |
           cd ./Avalon-Micro
