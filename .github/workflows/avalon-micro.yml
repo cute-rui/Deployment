@@ -40,7 +40,6 @@ jobs:
           set shell := ["powershell.exe", "-c"]
       - name: Build Avalon Micro
         run: |
-          cd ./Avalon-Micro
           just os=${{ matrix.platform }} arch=${{ matrix.arch }}
           cp ./justfile ./bin
       - name: Create Artifact
