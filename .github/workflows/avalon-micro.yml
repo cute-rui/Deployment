@@ -42,11 +42,9 @@ jobs:
         run: |
           just os=${{ matrix.platform }} arch=${{ matrix.arch }}
           cp ./justfile ./bin
-      - name: Create Artifact
-        run: |
-          tar -czvf Avalon-Micro-${{ matrix.platform }}-${{ matrix.arch }}.tar.gz ./bin
       - name: Upload to file repository
-        run: |
-          curl -H "${{ secrets.AVALON_MICRO_FILE_REPO_AUTH_SECRET }}" ${{ secrets.AVALON_MICRO_FILE_REPO_SECRET }} -F file=@"Avalon-Micro-${{ matrix.platform }}-${{ matrix.arch }}.tar.gz"
+        uses: actions/upload-artifact@v4
+        with:
+          path: "./bin/*"
 
       
