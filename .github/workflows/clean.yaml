@@ -15,6 +15,5 @@ jobs:
           with:
             token: ${{ secrets.GITHUB_TOKEN }}
             repository_owner: ${{ github.repository_owner }}
-            repository: ${{ github.repository }}
             untagged_only: true
             owner_type: user # or user
