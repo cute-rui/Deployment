@@ -42,9 +42,8 @@ jobs:
           just os=${{ matrix.platform }} arch=${{ matrix.arch }}
           cp ./justfile ./bin
       - name: Upload to file repository
-        uses: initdc/upload-artifact@baac12d9f85834b2f8baa26a08ff97c27cc82cd9 # latest commit https://github.com/actions/upload-artifact/pull/354
+        uses: actions/upload-artifact@v4
         with:
-          artifact-per-file: true
           path: "./bin/*"
 
       
