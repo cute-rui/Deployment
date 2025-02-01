@@ -1,0 +1,20 @@
+name: Clean
+on:
+  "workflow_dispatch"
+
+jobs:
+  deploy:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest]
+        arch: [amd64]
+    runs-on: ${{ matrix.platform }}
+    steps:
+        - name: Delete all containers from repository without tags
+          uses: Chizkiyahu/delete-untagged-ghcr-action@v6
+          with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            repository_owner: ${{ github.repository_owner }}
+            repository: ${{ github.repository }}
+            untagged_only: true
+            owner_type: user # or user
