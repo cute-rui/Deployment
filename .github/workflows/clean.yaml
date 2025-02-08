@@ -1,6 +1,10 @@
 name: Clean
 on:
-  "workflow_dispatch"
+  workflow_dispatch:
+  workflow_run:
+    workflows: [Build Avalon-Micro]
+    types: [completed]
+  
 
 jobs:
   deploy:
